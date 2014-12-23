@@ -26,6 +26,11 @@ end
 json = JSON.parse res.body
 issues = json['issues']
 currentIssue = issues[0]['key']
-url = 'http://' + $host + '/browse/' + currentIssue
 
-system('x-www-browser', url)
+action = ARGV.shift || 'open'
+if action == 'print'
+    puts currentIssue
+elsif action == 'open'
+    url = 'http://' + $host + '/browse/' + currentIssue
+    system('x-www-browser', url)
+end
