@@ -8,4 +8,4 @@ x-www-browser
 Jira-now tricks
 ===============
 
-`git checkout -b feature-\`jira-now print\`-hottest`
+``git checkout -b feature-`jira-now print`-hottest``
