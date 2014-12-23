@@ -13,10 +13,7 @@ Jira-now tricks
 Add function to your bashrc/zshrc:
 
 ```
-function gcof() {
-    NAME=$1
-    git checkout -b `jira-now print`-$NAME
-}
+gcof() { git checkout -b `jira-now print`-$1 }
 ```
 
 And use it
