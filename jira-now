@@ -6,9 +6,9 @@ require 'json'
 require 'uri'
 require File.expand_path('~/.config/jira.rb')
 # configuration example:
-# $host = jira.rn
-# $user = e.kovetskiy
-# $password = stupidpassword
+# $host = "jira.rn"
+# $user = "e.kovetskiy"
+# $password = "stupidpassword"
 
 
 uri = URI('http://' + $host + '/rest/api/2/search')
