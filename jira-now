@@ -10,7 +10,6 @@ require File.expand_path('~/.config/jira.rb')
 # $user = e.kovetskiy
 # $password = stupidpassword
 
-
 uri = URI('http://' + $host + '/rest/api/2/search')
 req = Net::HTTP::Post.new(
     uri.path,
@@ -28,12 +27,15 @@ end
 
 json = JSON.parse res.body
 issues = json['issues']
-currentIssue = issues[0]['key']
+issue = issues[0]
 
 action = ARGV.shift || 'open'
 if action == 'print'
-    puts currentIssue
+    puts issue['key']
+elsif action == 'branch'
+    branchField = 'customfield_10131'
+    puts issue['fields'][branchField]
 elsif action == 'open'
-    url = 'http://' + $host + '/browse/' + currentIssue
+    url = 'http://' + $host + '/browse/' + issue['key']
     system('x-www-browser', url)
 end
